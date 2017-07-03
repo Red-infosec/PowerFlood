@@ -1,2 +1,2 @@
 # PowerFlood
-A POC PowerShell packet flooder
+A POC packet flooder using PowerShell. 
